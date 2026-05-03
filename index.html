@@ -3,122 +3,226 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>나윤 & 채윤 | 링크</title>
-
-  <meta name="description" content="나윤과 채윤의 반짝이는 일상, 인스타그램 바로가기" />
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>나윤 & 채윤 | Little Moment</title>
+  <meta name="description" content="나윤과 채윤의 반짝이는 일상 링크 모음" />
 
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Jua&display=swap');
+
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: 'Pretendard', sans-serif;
     }
 
     body {
-      background: #FFF8F0;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      background:
+        radial-gradient(circle at 15% 20%, #ffef5a 0 8%, transparent 9%),
+        radial-gradient(circle at 88% 12%, #ff7ab6 0 9%, transparent 10%),
+        radial-gradient(circle at 80% 82%, #68e1fd 0 10%, transparent 11%),
+        linear-gradient(135deg, #fff7d6 0%, #ffe1ef 45%, #d9f4ff 100%);
+      font-family: 'Gowun Dodum', sans-serif;
+      padding: 28px;
+      color: #222;
     }
 
-    .container {
+    .wrap {
       width: 100%;
-      max-width: 420px;
+      max-width: 430px;
       text-align: center;
-      padding: 20px;
+      position: relative;
     }
 
-    .logo {
-      font-size: 26px;
-      font-weight: 700;
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      background: #fff;
+      border: 4px solid #111;
+      box-shadow: 7px 7px 0 #111;
+      font-size: 42px;
+      margin-bottom: 24px;
+      transform: rotate(-5deg);
+    }
+
+    h1 {
+      font-family: 'Jua', sans-serif;
+      font-size: 38px;
+      letter-spacing: -1px;
       margin-bottom: 8px;
+      color: #111;
+      text-shadow: 3px 3px 0 #fff;
     }
 
-    .subtitle {
+    .sub {
+      display: inline-block;
+      background: #111;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 999px;
       font-size: 14px;
-      color: #888;
-      margin-bottom: 30px;
+      margin-bottom: 34px;
+      box-shadow: 4px 4px 0 rgba(0,0,0,0.18);
+    }
+
+    .links {
+      display: grid;
+      gap: 18px;
     }
 
     .card {
+      position: relative;
       display: block;
       text-decoration: none;
-      padding: 20px;
-      border-radius: 18px;
-      margin-bottom: 16px;
       background: #fff;
-      transition: 0.25s;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+      border: 4px solid #111;
+      border-radius: 28px;
+      padding: 23px 24px;
+      text-align: left;
+      color: #111;
+      box-shadow: 8px 8px 0 #111;
+      overflow: hidden;
+      transition: 0.22s ease;
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.1);
+      transform: translate(-3px, -3px);
+      box-shadow: 12px 12px 0 #111;
     }
 
-    .card-title {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 6px;
+    .card::before {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      right: -34px;
+      top: -38px;
+      opacity: 0.9;
     }
 
-    .card-desc {
-      font-size: 13px;
-      color: #666;
+    .nayeon::before {
+      background: #ff5ea8;
     }
 
-    /* 나윤 카드 */
-    .nayon {
-      border: 3px solid #FF5FA2;
+    .chaeyun::before {
+      background: #35b8ff;
     }
 
-    .nayon .card-title {
-      color: #FF2E88;
-    }
-
-    /* 채윤 카드 */
-    .chaeyun {
-      border: 3px solid #4DB8FF;
-    }
-
-    .chaeyun .card-title {
-      color: #1A9BFF;
-    }
-
-    footer {
-      margin-top: 30px;
+    .card::after {
+      content: "Instagram";
+      position: absolute;
+      right: 22px;
+      bottom: 18px;
       font-size: 12px;
-      color: #aaa;
+      font-weight: bold;
+      color: rgba(0,0,0,0.45);
+      letter-spacing: 1px;
     }
 
+    .name {
+      position: relative;
+      z-index: 2;
+      font-family: 'Jua', sans-serif;
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .desc {
+      position: relative;
+      z-index: 2;
+      font-size: 15px;
+      color: #555;
+    }
+
+    .emoji {
+      position: absolute;
+      right: 28px;
+      top: 22px;
+      z-index: 2;
+      font-size: 34px;
+    }
+
+    .nayeon {
+      background: linear-gradient(135deg, #fff 0%, #fff3f8 100%);
+    }
+
+    .chaeyun {
+      background: linear-gradient(135deg, #fff 0%, #eef9ff 100%);
+    }
+
+    .footer {
+      margin-top: 34px;
+      font-size: 12px;
+      color: #333;
+      opacity: 0.75;
+    }
+
+    .sparkle {
+      position: absolute;
+      font-size: 24px;
+      animation: float 2.8s ease-in-out infinite;
+    }
+
+    .s1 { top: 110px; left: 8px; }
+    .s2 { top: 180px; right: -4px; animation-delay: .8s; }
+    .s3 { bottom: 70px; left: -2px; animation-delay: 1.2s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-9px) rotate(8deg); }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        align-items: flex-start;
+        padding-top: 54px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .card {
+        padding: 22px;
+      }
+    }
   </style>
 </head>
 
 <body>
+  <main class="wrap">
+    <div class="sparkle s1">✨</div>
+    <div class="sparkle s2">🌈</div>
+    <div class="sparkle s3">⭐</div>
 
-  <div class="container">
-    <div class="logo">🌸 나윤 & 채윤</div>
-    <div class="subtitle">반짝이는 우리의 일상</div>
+    <div class="badge">🌸</div>
 
-    <!-- 나윤 -->
-    <a href="https://www.instagram.com/t.daynana" target="_blank" class="card nayon">
-      <div class="card-title">나윤's 일상</div>
-      <div class="card-desc">따뜻하고 소중한 기록들</div>
-    </a>
+    <h1>나윤 & 채윤</h1>
+    <div class="sub">작고 반짝이는 우리들의 순간</div>
 
-    <!-- 채윤 -->
-    <a href="https://www.instagram.com/t.daychae" target="_blank" class="card chaeyun">
-      <div class="card-title">채윤's 일상</div>
-      <div class="card-desc">반짝반짝 빛나는 하루</div>
-    </a>
+    <section class="links">
+      <a class="card nayeon" href="https://www.instagram.com/t.daynana" target="_blank" rel="noopener">
+        <div class="emoji">🍓</div>
+        <div class="name">나윤's 일상</div>
+        <div class="desc">따뜻하고 사랑스러운 기록 보러가기</div>
+      </a>
 
-    <footer>© 2026 Moment Archive</footer>
-  </div>
+      <a class="card chaeyun" href="https://www.instagram.com/t.daychae" target="_blank" rel="noopener">
+        <div class="emoji">🫧</div>
+        <div class="name">채윤's 일상</div>
+        <div class="desc">반짝반짝 빛나는 하루 보러가기</div>
+      </a>
+    </section>
 
+    <div class="footer">© 2026 Little Moment Archive</div>
+  </main>
 </body>
 </html>
