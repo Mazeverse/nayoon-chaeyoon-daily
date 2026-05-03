@@ -1,149 +1,171 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나윤 & 채윤 일상</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500&family=Noto+Sans+KR:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f9f7f2; /* 이미지 특유의 아이보리 배경 */
+            --text-black: #1a1a1a;
+            --nana-pastel: #f2d5d5; /* 나윤 - 톤다운 파스텔 핑크 */
+            --chae-pastel: #d5e2f2; /* 채윤 - 톤다운 파스텔 블루 */
+            --accent-peach: #ffbd9b; /* 이미지의 COACH 배지 색상 */
+        }
 
-  <title>나윤 & 채윤</title>
-  <meta name="description" content="나윤과 채윤의 인스타그램 링크 모음" />
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Pretendard:wght@400;600;700;800&display=swap');
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            font-family: 'Inter', 'Noto Sans KR', sans-serif;
+            color: var(--text-black);
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+        .container {
+            width: 100%;
+            max-width: 420px;
+            padding: 60px 24px;
+            text-align: center;
+        }
 
-    body {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #e9e6df;
-      font-family: 'Pretendard', sans-serif;
-      color: #161616;
-      padding: 24px;
-    }
+        /* 이미지의 아치형 프로필 스타일 */
+        .profile-section {
+            position: relative;
+            width: 240px;
+            height: 280px;
+            margin: 0 auto 40px;
+        }
 
-    .page {
-      width: 100%;
-      max-width: 390px;
-      min-height: 660px;
-      background: #fbf5e8;
-      padding: 58px 34px 36px;
-      text-align: center;
-      box-shadow: 0 24px 70px rgba(0,0,0,0.12);
-      border: 1px solid rgba(0,0,0,0.08);
-    }
+        .profile-arch {
+            width: 100%;
+            height: 100%;
+            background: #e0e0e0; /* 사진 넣기 전 기본 배경 */
+            border-radius: 120px 120px 40px 40px; /* 상단은 둥글고 하단은 완만한 아치 */
+            overflow: hidden;
+            border: 1.5px solid var(--text-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+        }
 
-    .label {
-      display: inline-block;
-      margin-bottom: 14px;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.18em;
-    }
+        /* 이미지의 'COACH' 배지 스타일 */
+        .badge {
+            position: absolute;
+            bottom: 20px;
+            right: -20px;
+            background-color: var(--accent-peach);
+            padding: 12px 24px;
+            border-radius: 40px;
+            border: 1.5px solid var(--text-black);
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 18px;
+            letter-spacing: 1px;
+            box-shadow: 4px 4px 0px var(--text-black);
+        }
 
-    h1 {
-      font-family: 'Archivo Black', 'Pretendard', sans-serif;
-      font-size: 34px;
-      line-height: 1.05;
-      letter-spacing: -1.4px;
-      margin-bottom: 10px;
-    }
+        .handle {
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            font-weight: 500;
+            opacity: 0.8;
+        }
 
-    .subtitle {
-      font-size: 13px;
-      color: #555;
-      margin-bottom: 42px;
-    }
+        h1 {
+            font-family: 'Archivo Black', 'Noto Sans KR', sans-serif;
+            font-size: 36px;
+            margin: 0 0 40px 0;
+            letter-spacing: -1px;
+            font-weight: 900;
+        }
 
-    .links {
-      display: grid;
-      gap: 13px;
-      margin-bottom: 32px;
-    }
+        .links-group {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
 
-    .link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 47px;
-      border: 1.7px solid #171717;
-      border-radius: 999px;
-      background: #eee6d7;
-      color: #171717;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      transition: 0.2s ease;
-    }
+        /* 이미지의 알약 모양 버튼 스타일 */
+        .link-card {
+            display: block;
+            padding: 20px;
+            border-radius: 50px; /* 완전한 알약 모양 */
+            border: 1.5px solid var(--text-black);
+            text-decoration: none;
+            color: var(--text-black);
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+        }
 
-    .link:hover {
-      background: #171717;
-      color: #fbf5e8;
-      transform: translateY(-2px);
-    }
+        .link-nana { background-color: var(--nana-pastel); }
+        .link-chae { background-color: var(--chae-pastel); }
 
-    .text {
-      max-width: 260px;
-      margin: 0 auto;
-      font-size: 11px;
-      line-height: 1.55;
-      color: #575757;
-    }
+        .link-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 0px var(--text-black);
+        }
 
-    .footer {
-      margin-top: 42px;
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      color: #777;
-    }
+        .link-card:active {
+            transform: translateY(0px);
+            box-shadow: 0 0px 0px var(--text-black);
+        }
 
-    @media (max-width: 480px) {
-      body {
-        padding: 0;
-        background: #fbf5e8;
-      }
+        .description {
+            margin-top: 40px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #666;
+            padding: 0 20px;
+        }
 
-      .page {
-        min-height: 100vh;
-        max-width: none;
-        box-shadow: none;
-        border: none;
-        padding-top: 72px;
-      }
-    }
-  </style>
+        .footer {
+            margin-top: 40px;
+            font-size: 11px;
+            letter-spacing: 1px;
+            opacity: 0.5;
+        }
+    </style>
 </head>
-
 <body>
-  <main class="page">
-    <div class="label">@MOMENT ARCHIVE</div>
+    <div class="container">
+        <div class="profile-section">
+            <div class="profile-arch">
+                <!-- 나중에 사진을 넣으려면 <img src="사진주소" style="width:100%; height:100%; object-fit:cover;"> 로 교체하세요 -->
+                📸
+            </div>
+            <div class="badge">DAILY</div>
+        </div>
 
-    <h1>나윤<br>& 채윤</h1>
+        <div class="handle">@NAYUN_CHAEYUN</div>
+        <h1>나윤 & 채윤</h1>
 
-    <p class="subtitle">반짝이는 하루를 기록하는 작은 공간</p>
+        <div class="links-group">
+            <a href="https://www.instagram.com/t.daynana" target="_blank" class="link-card link-nana">
+                나윤's 일상 보러가기
+            </a>
+            <a href="https://www.instagram.com/t.daychae" target="_blank" class="link-card link-chae">
+                채윤's 일상 보러가기
+            </a>
+        </div>
 
-    <section class="links">
-      <a class="link" href="https://www.instagram.com/t.daynana" target="_blank" rel="noopener">
-        나윤's 일상
-      </a>
+        <p class="description">
+            사랑스러운 두 아이의 반짝이는 순간들을 기록합니다.<br>
+            오늘도 행복한 하루 되세요!
+        </p>
 
-      <a class="link" href="https://www.instagram.com/t.daychae" target="_blank" rel="noopener">
-        채윤's 일상
-      </a>
-    </section>
-
-    <p class="text">
-      소중한 순간들을 천천히 모아두는 곳.<br>
-      오늘의 작은 기억이 오래 남는 장면이 되기를.
-    </p>
-
-    <div class="footer">© 2026 LITTLE DAYS</div>
-  </main>
+        <div class="footer">
+            © 2026 MOMENT ARCHIVE
+        </div>
+    </div>
 </body>
 </html>
