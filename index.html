@@ -1,161 +1,155 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>나윤 & 채윤 일상</title>
-    <!-- 동글동글함의 끝판왕 '나눔스퀘어라운드' 및 '가구' 폰트 사용 -->
-    <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* 폰트 정의: 나눔스퀘어라운드 웹폰트가 없을 경우를 대비해 둥근 서체 위주 설정 */
-        @import url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.css');
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        :root {
-            --bg-color: #ffffff; /* 깨끗한 화이트 배경 */
-            --text-main: #333333;
-            --text-sub: #999999;
-            --nana-color: #fff0f3; /* 아주 연한 핑크 */
-            --chae-color: #f0f7ff; /* 아주 연한 블루 */
-            --border-soft: #eeeeee;
-        }
+<title>나윤 & 채윤</title>
+<meta name="description" content="나윤과 채윤의 일상 링크" />
 
-        * { 
-            box-sizing: border-box; 
-            -webkit-tap-highlight-color: transparent;
-            word-break: keep-all;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            font-family: 'NanumSquareRound', sans-serif;
-            color: var(--text-main);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Pretendard', sans-serif;
+}
 
-        .container {
-            width: 100%;
-            max-width: 380px;
-            padding: 40px 28px;
-            text-align: center;
-        }
+body {
+  background: linear-gradient(180deg, #f5f1e9 0%, #eae4d8 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
 
-        /* 상단 심플 아이콘 */
-        .header-icon {
-            font-size: 32px;
-            margin-bottom: 15px;
-            display: block;
-            opacity: 0.8;
-        }
+/* 컨테이너 */
+.container {
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
 
-        h1 {
-            font-size: 26px;
-            font-weight: 800;
-            margin: 0 0 10px 0;
-            letter-spacing: -0.5px;
-        }
+/* 상단 */
+.title {
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 8px;
+}
 
-        .sub-title {
-            font-size: 14px;
-            color: var(--text-sub);
-            margin-bottom: 45px;
-            font-weight: 400;
-        }
+.subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 40px;
+}
 
-        .links-wrap {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
+/* 카드 영역 */
+.card {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 24px 20px;
+  margin-bottom: 14px;
+  border: 1px solid #ddd;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  transition: 0.25s;
+  text-decoration: none;
+  display: block;
+  color: #111;
+  position: relative;
+}
 
-        /* 동글동글 심플 카드 스타일 */
-        .link-item {
-            display: block;
-            padding: 22px;
-            border-radius: 30px; /* 둥근 모서리 */
-            text-decoration: none;
-            color: var(--text-main);
-            font-size: 17px;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-        }
+/* hover 효과 */
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 35px rgba(0,0,0,0.12);
+}
 
-        .link-nana {
-            background-color: var(--nana-color);
-        }
+/* 좌측 컬러 라인 */
+.card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 6px;
+  border-radius: 22px 0 0 22px;
+}
 
-        .link-chae {
-            background-color: var(--chae-color);
-        }
+/* 나윤 */
+.nayeon::before {
+  background: #ff6b9a;
+}
 
-        /* 마우스 올렸을 때 부드러운 반응 */
-        .link-item:hover {
-            transform: scale(1.02);
-            filter: brightness(0.98);
-        }
+/* 채윤 */
+.chaeyun::before {
+  background: #4da6ff;
+}
 
-        .link-item span {
-            display: block;
-            font-size: 12px;
-            font-weight: 400;
-            color: var(--text-sub);
-            margin-top: 4px;
-        }
+/* 제목 */
+.card-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
 
-        .footer {
-            margin-top: 60px;
-            font-size: 12px;
-            color: #ccc;
-            letter-spacing: 1px;
-        }
+/* 설명 */
+.card-desc {
+  font-size: 13px;
+  color: #777;
+}
 
-        /* 심플한 하단 장식 */
-        .dot-deco {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 30px;
-        }
+/* 인스타 텍스트 */
+.card small {
+  display: block;
+  margin-top: 10px;
+  font-size: 11px;
+  color: #aaa;
+}
 
-        .dot {
-            width: 6px;
-            height: 6px;
-            background-color: var(--border-soft);
-            border-radius: 50%;
-        }
-    </style>
+/* 푸터 */
+.footer {
+  margin-top: 30px;
+  font-size: 12px;
+  color: #999;
+}
+
+@media (max-width: 480px) {
+  body {
+    align-items: flex-start;
+    padding-top: 60px;
+  }
+}
+</style>
 </head>
+
 <body>
-    <div class="container">
-        <span class="header-icon">☁️</span>
-        <h1>나윤 & 채윤</h1>
-        <p class="sub-title">소소하고 소중한 일상 기록</p>
 
-        <div class="links-wrap">
-            <a href="https://www.instagram.com/t.daynana" target="_blank" class="link-item link-nana">
-                나윤's 일상
-                <span>@t.daynana</span>
-            </a>
-            <a href="https://www.instagram.com/t.daychae" target="_blank" class="link-item link-chae">
-                채윤's 일상
-                <span>@t.daychae</span>
-            </a>
-        </div>
+<div class="container">
 
-        <div class="dot-deco">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-        </div>
+  <div class="title">나윤 & 채윤</div>
+  <div class="subtitle">작고 반짝이는 일상 기록</div>
 
-        <div class="footer">
-            © 2026 MOMENT ARCHIVE
-        </div>
-    </div>
+  <!-- 나윤 -->
+  <a href="https://www.instagram.com/t.daynana" target="_blank" class="card nayeon">
+    <div class="card-title">나윤's 일상</div>
+    <div class="card-desc">따뜻하고 소중한 하루</div>
+    <small>Instagram 바로가기</small>
+  </a>
+
+  <!-- 채윤 -->
+  <a href="https://www.instagram.com/t.daychae" target="_blank" class="card chaeyun">
+    <div class="card-title">채윤's 일상</div>
+    <div class="card-desc">반짝반짝 빛나는 순간</div>
+    <small>Instagram 바로가기</small>
+  </a>
+
+  <div class="footer">© 2026 Moment Archive</div>
+
+</div>
+
 </body>
 </html>
