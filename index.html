@@ -3,115 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>나윤 & 채윤's Daily</title>
-    <!-- 귀여운 폰트 적용 -->
-    <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
+    <title>Nayun & Chaeyun Daily</title>
+    <!-- 세련된 세리프 & 산세리프 폰트 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Pretendard:wght@300;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #FFF9FB;
-            --card-bg: #FFFFFF;
-            --text-main: #5D5D5D;
-            --point-pink: #FFB6C1;
-            --point-yellow: #FFFACD;
-            --accent: #FF85A1;
+            --main-bg: #fdfbfb;
+            --sub-bg: #ebedee;
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --accent-soft: #fab1a0; /* 살구빛 감성 */
         }
+
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         body {
             margin: 0;
             padding: 0;
-            background-color: var(--bg-color);
-            font-family: 'Gaegu', cursive;
+            background-image: linear-gradient(120deg, var(--main-bg) 0%, var(--sub-bg) 100%);
+            font-family: 'Pretendard', sans-serif;
+            color: var(--text-dark);
             display: flex;
             justify-content: center;
-            color: var(--text-main);
+            align-items: center;
+            min-height: 100vh;
         }
 
-        .wrapper {
+        .container {
             width: 100%;
-            max-width: 430px;
-            padding: 60px 20px;
+            max-width: 400px;
+            padding: 40px 24px;
             text-align: center;
         }
 
-        .profile-section {
-            margin-bottom: 40px;
+        .profile-wrap {
+            margin-bottom: 48px;
         }
 
-        .profile-emoji {
-            font-size: 50px;
+        .profile-circle {
+            width: 88px;
+            height: 88px;
+            margin: 0 auto 20px;
             background: white;
-            width: 100px;
-            height: 100px;
-            line-height: 100px;
-            border-radius: 50%;
-            display: inline-block;
-            box-shadow: 0 10px 20px rgba(255, 182, 193, 0.3);
-            margin-bottom: 20px;
-            border: 4px solid var(--point-pink);
+            border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%; /* 정원이 아닌 감성적인 곡선 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255,255,255,0.8);
         }
 
-        h1 { font-size: 32px; margin: 10px 0; color: var(--accent); }
-        p { font-size: 20px; margin-bottom: 30px; opacity: 0.8; }
+        h1 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin: 0 0 8px 0;
+        }
 
-        .links-container {
+        .subtitle {
+            font-size: 14px;
+            color: var(--text-light);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .links-group {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 14px;
         }
 
-        .link-item {
-            background: var(--card-bg);
-            padding: 20px;
-            border-radius: 30px;
+        .link-card {
+            display: block;
+            padding: 18px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 16px;
             text-decoration: none;
-            color: var(--text-main);
-            font-size: 24px;
-            font-weight: bold;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
+            color: var(--text-dark);
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
         }
 
-        .link-item:hover {
-            transform: scale(1.03);
-            border-color: var(--point-pink);
-            background-color: var(--point-yellow);
+        .link-card:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-color: var(--accent-soft);
+        }
+
+        .link-card span {
+            display: block;
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 4px;
+            font-weight: 300;
         }
 
         .footer {
             margin-top: 60px;
-            font-size: 16px;
-            opacity: 0.5;
+            font-size: 11px;
+            color: var(--text-light);
+            letter-spacing: 2px;
+            opacity: 0.6;
         }
 
-        /* 반짝이는 애니메이션 */
-        @keyframes sparkle {
-            0% { opacity: 0.5; }
-            50% { opacity: 1; }
-            100% { opacity: 0.5; }
+        /* 은은한 배경 애니메이션 */
+        .bg-blob {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(250, 177, 160, 0.2) 0%, rgba(255,255,255,0) 70%);
+            z-index: -1;
+            top: -100px;
+            right: -100px;
+            filter: blur(50px);
         }
-        .sparkle { animation: sparkle 1.5s infinite; }
     </style>
 </head>
 <body>
-    <div class="wrapper">
-        <div class="profile-section">
-            <div class="profile-emoji">🎀</div>
-            <h1>나윤 & 채윤이의 일상</h1>
-            <p>반짝반짝 빛나는 아이들의 하루 <span class="sparkle">✨</span></p>
+    <div class="bg-blob"></div>
+    <div class="container">
+        <div class="profile-wrap">
+            <div class="profile-circle">☁️</div>
+            <h1>나윤 & 채윤</h1>
+            <div class="subtitle">Our Cherished Moments</div>
         </div>
 
-        <div class="links-container">
-            <a href="https://www.instagram.com/t.daynana" target="_blank" class="link-item">
-                🌸 나윤's 일상 보러가기
+        <div class="links-group">
+            <a href="https://www.instagram.com/t.daynana" target="_blank" class="link-card">
+                Nayun's Daily
+                <span>나윤이의 따뜻한 일상 기록</span>
             </a>
-            <a href="https://www.instagram.com/t.daychae" target="_blank" class="link-item">
-                🐥 채윤's 일상 보러가기
+            <a href="https://www.instagram.com/t.daychae" target="_blank" class="link-card">
+                Chaeyun's Daily
+                <span>채윤이의 반짝이는 하루</span>
             </a>
         </div>
 
         <div class="footer">
-            © 2026 Nayun & Chaeyun. All rights reserved.
+            EST. 2026 | MOMENT ARCHIVE
         </div>
     </div>
 </body>
